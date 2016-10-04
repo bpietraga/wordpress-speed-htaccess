@@ -1,10 +1,8 @@
 ##### BEGIN WORDPRESS SPEED HTACCESS CONFIG BY BERNARD PIETRAGA  #####
 # Copy and paste contents of this file top of existing .htaccess file
 
-## Disable directory browsing
 Options -Indexes
 
-## mod_deflate config
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/xml text/css text/plain text/x-component text/x-js text/richtext text/xsd text/xsl image/svg+xml application/xhtml+xml application/xml image/x-icon application/rdf+xml application/xml+rdf application/rss+xml application/xml+rss application/atom+xml application/xml+atom text/javascript application/javascript application/x-javascript application/json application/x-font-ttf application/x-font-otf font/truetype font/opentype
 
@@ -17,7 +15,6 @@ Options -Indexes
   </IfModule>
 </IfModule>
 
-## mod_expires config
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 31536000 seconds"
@@ -61,7 +58,6 @@ Options -Indexes
   ExpiresByType application/octet-stream "access plus 31536000 seconds"
 </IfModule>
 
-## mod_header config
 <IfModule mod_headers.c>
   <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
     Header set Cache-Control "public, max-age=31536000, s-maxage=31536000"
@@ -100,7 +96,6 @@ Options -Indexes
   </filesMatch>
 </IfModule>
 
-## mod_rewrite config
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -155,11 +150,9 @@ Options -Indexes
   RewriteRule . /index.php [L]
 </IfModule>
 
-## Disable ETags
 Header unset ETag
 FileETag None
 
-## Pagespeed
 <IfModule pagespeed_module>
   ModPagespeed on
   # using commands,filters etc
